@@ -67,11 +67,9 @@ class QuestionImport implements ToModel, WithBatchInserts, WithChunkReading, Sho
     {
         return 1000;
     }
-    // public function onError(\Throwable $error)
-    // {
-    //     $errorMessage = 'Bir hata oluştu: ' . $e->getMessage();
-    //     dd($errorMessage);
-    //     return redirect()->back()->with('error', $errorMessage);
-    // }
-
+    public function onError(\Throwable $error)
+    {
+        $errorMessage = 'Bir hata oluştu: ' . $e->getMessage();
+        return redirect()->back()->with('error', $errorMessage);
+    }
 }
